@@ -1,4 +1,5 @@
-
+#!/usr/bin/env bash
+# We assume we have already installed pip and pipenv if not ; do it !
 PROJECT=$1;
 
 ORIGIN=${pwd};
@@ -8,13 +9,8 @@ echo "Create Proyect folder";
 mkdir $PROJECT;
 cd $PROJECT;
 
-echo "Install Pipenv";
-pip install msgpack
-pip install pipenv
-
-echo "Install virtualenv";
-
-virtualenv project_lib;
+echo "Run Pipenv";
+pipenv install
 
 echo "Create Source And tests";
 mkdir src;
@@ -51,5 +47,6 @@ class $PROJECT:
 
 " > $PROJECT.py;
 
+echo "If you are going to develope it in Pycharm run pipenv --venv to get where virtualenv is created for this guy "
 
 cd $PROJECT
